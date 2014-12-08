@@ -63,7 +63,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" eType="#//Trigger" eOpposite="#//Trigger/+event"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageEvent" eSuperTypes="#//Event"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CallEvent" eSuperTypes="#//MessageEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CallEvent" eSuperTypes="#//MessageEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+operation" lowerBound="1"
+        eType="#//Operation"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//BehavioralFeature"/>
   <eClassifiers xsi:type="ecore:EClass" name="BehavioralFeature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="behavior" eType="#//Behavior"
