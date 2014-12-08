@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ModelTransformationTP4/src" modelPluginID="ModelTransformationTP4"
+    modelName="StateMachine" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>StateMachine.ecore</foreignModel>
+  <genPackages prefix="Statemachine" basePackage="fr.houssam.transformation.model"
+      disposableProviderFactory="true" ecorePackage="StateMachine.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="StateMachine.ecore#//PseudoStateKind">
+      <genEnumLiterals ecoreEnumLiteral="StateMachine.ecore#//PseudoStateKind/initial"/>
+    </genEnums>
+    <genClasses ecoreClass="StateMachine.ecore#//Class"/>
+    <genClasses ecoreClass="StateMachine.ecore#//StateMachine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//StateMachine/region"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//NamedElement"/>
+    <genClasses ecoreClass="StateMachine.ecore#//BehavioredClassifier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//BehavioredClassifier/ownedBehavior"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Region">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference StateMachine.ecore#//Region/machine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Region/subvertex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Region/transition"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Behavior">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Behavior/specification"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference StateMachine.ecore#//Behavior/context"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference StateMachine.ecore#//Behavior/behaviortransition"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//OpaqueBehavior">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//OpaqueBehavior/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//OpaqueBehavior/language"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Transition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Transition/guard"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Transition/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference StateMachine.ecore#//Transition/transitionregion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Transition/trigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Transition/effect"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="StateMachine.ecore#//Vertex">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Vertex/outgoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Vertex/incoming"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference StateMachine.ecore#//Vertex/regionvertex"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//PseudoState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StateMachine.ecore#//PseudoState/kind"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//State"/>
+    <genClasses ecoreClass="StateMachine.ecore#//FinalState"/>
+    <genClasses ecoreClass="StateMachine.ecore#//Event">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Event/eventtrigger"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//MessageEvent"/>
+    <genClasses ecoreClass="StateMachine.ecore#//CallEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//CallEvent/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Operation"/>
+    <genClasses ecoreClass="StateMachine.ecore#//BehavioralFeature">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//BehavioralFeature/behavior"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Trigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Trigger/triggertransition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference StateMachine.ecore#//Trigger/event"/>
+    </genClasses>
+    <genClasses ecoreClass="StateMachine.ecore#//Constraint">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference StateMachine.ecore#//Constraint/constrainttransition"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
