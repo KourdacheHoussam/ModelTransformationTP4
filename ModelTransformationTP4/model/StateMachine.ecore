@@ -2,10 +2,20 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="statemachine" nsURI="http://org/eclipse/state/machine" nsPrefix="org.eclipse.state.machine">
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//BehavioredClassifier"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StateMachine" eSuperTypes="#//Behavior"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine" eSuperTypes="#//Behavior">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+region" lowerBound="1"
+        upperBound="-1" eType="#//Region" transient="true" containment="true" eOpposite="#//Region/machine"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="BehavioredClassifier"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Region"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Region">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="machine" eType="#//StateMachine"
+        changeable="false" transient="true" eOpposite="#//StateMachine/+region"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+subvertex" upperBound="-1"
+        eType="#//Vertex" containment="true" eOpposite="#//Vertex/%"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+transition" upperBound="-1"
+        eType="#//Transition" containment="true" eOpposite="#//Transition/%"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behavior"/>
   <eClassifiers xsi:type="ecore:EClass" name="OpaqueBehavior" eSuperTypes="#//Behavior">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" lowerBound="1" upperBound="-1"
@@ -14,9 +24,26 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Vertex" abstract="true" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PseudoState" eSuperTypes="#//Vertex"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+guard" unique="false"
+        eType="#//Constraint" containment="true" eOpposite="#//Constraint/%"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+source" lowerBound="1"
+        eType="#//Vertex" eOpposite="#//Vertex/+outgoing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+target" lowerBound="1"
+        eType="#//Vertex" eOpposite="#//Vertex/+incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" lowerBound="1" eType="#//Region"
+        eOpposite="#//Region/+transition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vertex" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+outgoing" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/+source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="+incoming" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/+target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" eType="#//Region" eOpposite="#//Region/+subvertex"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PseudoState" eSuperTypes="#//Vertex">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//PseudoStateKind"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//Vertex"/>
   <eClassifiers xsi:type="ecore:EClass" name="FinalState" eSuperTypes="#//State"/>
   <eClassifiers xsi:type="ecore:EClass" name="Event"/>
@@ -24,4 +51,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="CallEvent" eSuperTypes="#//MessageEvent"/>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//BehavioralFeature"/>
   <eClassifiers xsi:type="ecore:EClass" name="BehavioralFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" eType="#//Transition" eOpposite="#//Transition/+guard"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PseudoStateKind">
+    <eLiterals name="initial"/>
+  </eClassifiers>
 </ecore:EPackage>
