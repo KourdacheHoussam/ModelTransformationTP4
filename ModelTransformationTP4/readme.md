@@ -31,6 +31,15 @@ méta-modèle UML.
 
 ------------------
 Le diagramme machine états est : tdPatternState.pdf 
-
+Création du diagramme de classe, génération du modele, et de son code source java
 ------------------
-e
+ * Création du diagramme de classe du patron state machine -> fichier StateMachine.ecore_diagram
+ * Génération du fichier model ecore StateMachine.ecore
+ * Clique droit sur dernier et génération de StateMachine.genmodel (new->other->emf generator model), puis charger le
+   modele StateMachine.ecore (faut absolument que le ecore soit validé pour ne pas générer d'erreurs).
+ * Génération du code java à partir du fichier StateMachine.genmodel: ouvrir ce dernier et pointer sur la racine
+   puis cliquer sur : Generate model code (suivre les autres etapes). cette étape vous générera les trois packages de votre 
+   modele.
+   
+   
+   
