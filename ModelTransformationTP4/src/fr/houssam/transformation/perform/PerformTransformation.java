@@ -15,10 +15,14 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
 
 import fr.houssam.transformation.model.statemachine.Behavior;
+import fr.houssam.transformation.model.statemachine.CallEvent;
 import fr.houssam.transformation.model.statemachine.Class;
+import fr.houssam.transformation.model.statemachine.Operation;
 import fr.houssam.transformation.model.statemachine.Region;
 import fr.houssam.transformation.model.statemachine.State;
 import fr.houssam.transformation.model.statemachine.StateMachine;
+import fr.houssam.transformation.model.statemachine.Transition;
+import fr.houssam.transformation.model.statemachine.Trigger;
 import fr.houssam.transformation.model.statemachine.Vertex;
 
 public class PerformTransformation {
@@ -84,9 +88,23 @@ public class PerformTransformation {
 	 * machine a etat
 	 */
 	
-	public static ArrayList<State> collecteStatesTriggered(StateMachine sm){
-		
-		return  null;
+	public static ArrayList<Operation> collecteStatesTriggeredOperations(StateMachine sm){
+		ArrayList<Operation> ops=new ArrayList<Operation>();
+		if(checkStateMachine(sm)){
+			EList<Region> regions=sm.getRegion();
+			Region r=regions.get(0);
+			EList<Transition> transitions= r.getTransition();
+			for(int i=0; i<transitions.size(); i++){
+				Transition t=transitions.get(i);
+				EList<Trigger>triggers=t.getTrigger();
+				for(int j=0; j<triggers.size(); j++){
+					Trigger tr=triggers.get(j);
+					CallEvent e=(CallEvent) tr.getEvent();
+					ops.add(e.getOperation());					
+				}
+			}
+		}
+		return  ops;
 	}
 	
 	
