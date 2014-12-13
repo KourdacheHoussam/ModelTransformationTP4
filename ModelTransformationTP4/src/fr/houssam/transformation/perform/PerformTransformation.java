@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -13,9 +14,12 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
 
+import fr.houssam.transformation.model.statemachine.Behavior;
 import fr.houssam.transformation.model.statemachine.Class;
+import fr.houssam.transformation.model.statemachine.Region;
 import fr.houssam.transformation.model.statemachine.State;
 import fr.houssam.transformation.model.statemachine.StateMachine;
+import fr.houssam.transformation.model.statemachine.Vertex;
 
 public class PerformTransformation {
 	
@@ -28,20 +32,30 @@ public class PerformTransformation {
 	 * Recuperer toutes les machines à états: prenant en parametre une classe, et qui retourne
 	 * les machines a etat la decrivant.
 	 */
-	public static ArrayList<StateMachine> getAllStateMachines(){
-		return null;
-		
+	@SuppressWarnings("null")
+	public static ArrayList<StateMachine> getAllStateMachines(Class maclass){
+		//on récupère la liste de tous les comportenment de la classe
+		EList<Behavior> behaviors=maclass.getOwnedBehavior();
+		// bahaviors with statemachine type
+		EList<Behavior> statebehaviors=null;
+		ArrayList<StateMachine> results=new ArrayList<StateMachine>();
+		//on parcours les comportements
+		for(int i=0; i<behaviors.size(); i++){
+			if(behaviors.get(i) instanceof StateMachine ){
+				statebehaviors.add(behaviors.get(i));
+				results.add((StateMachine) behaviors.get(i));
+			}
+		}
+		return results;		
 	}	
 	/**
 	 * méthode prenant en parametre une machine a etats et qui
 	 * verifie qu'elle est correctement formee pour notre exercice, c'est-a-dire qu'elle ne contient qu'une seule
 	 * région.
 	 */
-	public static boolean checkStateMachine(StateMachine sm){
-		
-		return true;
-	}
-	
+	public static boolean checkStateMachine(StateMachine sm){		
+		return sm.getRegion().size() ==1;
+	}	
 	
 	/**
 	 * Ecrivez en pseudo code une methode prenant en parametre une machine a etat bien
@@ -49,8 +63,32 @@ public class PerformTransformation {
 	 */
 	
 	public static ArrayList<State> collecteStates(StateMachine sm){
-		return null;		
+		ArrayList<State> results = null;
+		if(checkStateMachine(sm)){
+			EList<Region> regions=sm.getRegion();
+			Region r=regions.get(0);
+			EList<Vertex> vertexes=r.getSubvertex();
+			for(int j=0; j<vertexes.size(); j++){
+				if(vertexes.get(j) instanceof  State){
+					results.add((State) vertexes.get(j));
+				}
+			}
+		}
+		return results;
 	}
+	
+	
+	/**
+	 * Ecrivez en pseudo code une methode prenant en parametre une machine a etat bien
+	 * formee pour notre exercice, et qui retourne la liste des operations se trouvant comme trigger dans la
+	 * machine a etat
+	 */
+	
+	public static ArrayList<State> collecteStatesTriggered(StateMachine sm){
+		
+		return  null;
+	}
+	
 	
 	
 	/**
