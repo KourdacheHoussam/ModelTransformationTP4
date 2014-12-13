@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
+import org.eclipse.emf.ecore.xmi.*;
 
 import fr.houssam.transformation.model.statemachine.Behavior;
 import fr.houssam.transformation.model.statemachine.CallEvent;
@@ -21,17 +22,43 @@ import fr.houssam.transformation.model.statemachine.Operation;
 import fr.houssam.transformation.model.statemachine.Region;
 import fr.houssam.transformation.model.statemachine.State;
 import fr.houssam.transformation.model.statemachine.StateMachine;
+import fr.houssam.transformation.model.statemachine.StatemachineFactory;
+import fr.houssam.transformation.model.statemachine.StatemachinePackage;
 import fr.houssam.transformation.model.statemachine.Transition;
 import fr.houssam.transformation.model.statemachine.Trigger;
 import fr.houssam.transformation.model.statemachine.Vertex;
+import fr.houssam.transformation.model.statemachine.util.StatemachineAdapterFactory;
 
 public class PerformTransformation {
 	
+	BasicClass classToTransform;
+	
 	/** Perform the tranforomation:main class */
+	
 	public static void performIT(Class maclass){
+	
+		//Je charge l'instance map.xmi du meta-modle maps.ecore
+		Resource resource = loadModel("model/StateMachine.ecore",  StatemachinePackage.eINSTANCE);
+		
+		if (resource == null){
+			System.err.println(" Erreur de chargement du modele");		
+		}
+		
+		//Instruction recuperant le modele sous forme d'arbre a  partir de la classe racine "class"
+		
+		Class uml = (Class) resource.getContents().get(0);				
+		StatemachineFactory.eINSTANCE.createRegion();
+		
 		
 	}
 	
+	public static void AddStates(StateMachine sm){
+		ArrayList<State> states=collecteStates(sm);
+		for(int i=0; i<states.size(); i++){
+			State s=StatemachineFactory.eINSTANCE.createState();
+			
+		}		
+	}
 	/**
 	 * Recuperer toutes les machines à états: prenant en parametre une classe, et qui retourne
 	 * les machines a etat la decrivant.
@@ -66,6 +93,7 @@ public class PerformTransformation {
 	 * formee pour notre exercice, et qui retourne la liste des etats la composant.
 	 */
 	
+	@SuppressWarnings("null")
 	public static ArrayList<State> collecteStates(StateMachine sm){
 		ArrayList<State> results = null;
 		if(checkStateMachine(sm)){
@@ -81,7 +109,7 @@ public class PerformTransformation {
 		return results;
 	}
 	
-	
+		
 	/**
 	 * Ecrivez en pseudo code une methode prenant en parametre une machine a etat bien
 	 * formee pour notre exercice, et qui retourne la liste des operations se trouvant comme trigger dans la
@@ -107,13 +135,24 @@ public class PerformTransformation {
 		return  ops;
 	}
 	
+	/**
+	 * d'une methode qui appliquerait le patron State a une classe donnee
+	 */
+	public static void setStatePattern(Class maclass){
+		ArrayList<StateMachine> machines=getAllStateMachines(maclass);
+		for(int i=0; i<machines.size(); i++){
+			ArrayList<State> states=collecteStates(machines.get(i));
+			ArrayList<Operation> operations=collecteStatesTriggeredOperations(machines.get(i));
+		}
+	}
+	
 	
 	
 	/**
 	 *  Load the ecore model
 	 *  @param model
 	 */
-	public static Resource loadModel(String model, String uri, EPackage pack){
+	public static Resource loadModel(String uri, EPackage pack){
 		Resource resource=null;
 		try{
 			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
@@ -134,7 +173,7 @@ public class PerformTransformation {
 		    resource.load(options);//charge le model		    
 		    
 		}catch(Exception e){
-			System.out.println("Erreur de chargemement du model : "+model);
+			System.out.println("Erreur de chargemement du model : "+ uri);
 			e.printStackTrace();
 		}
 		return resource;
