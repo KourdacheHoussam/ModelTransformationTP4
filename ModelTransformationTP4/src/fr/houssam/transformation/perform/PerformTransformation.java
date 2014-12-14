@@ -30,9 +30,7 @@ import fr.houssam.transformation.model.statemachine.Trigger;
 import fr.houssam.transformation.model.statemachine.Vertex;
 
 public class PerformTransformation {
-
-	// private BasicClass classToTransform;
-
+	
 	/** Perform the tranforomation:main class */
 
 	public static void performIT(Class maclass) {
@@ -168,16 +166,15 @@ public class PerformTransformation {
 		Resource resource = null;
 		try {
 			URI uriUri = URI.createURI(uri);
-			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-					"uml", new XMIResourceFactoryImpl());
+			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("uml", new XMIResourceFactoryImpl());
 			resource = (new ResourceSetImpl()).createResource(uriUri);
 			XMLResource.XMLMap xmlMap = new XMLMapImpl();
 			xmlMap.setNoNamespacePackage(pack);
-			Map options = new HashMap();
+			java.util.Map options = new java.util.HashMap();
 			options.put(XMLResource.OPTION_XML_MAP, xmlMap);
 			resource.load(options);
 		} catch (Exception e) {
-			System.out.println("Erreur de chargemement du model : " + uri);
+			System.err.println("ERREUR chargement du modÃ¨le : " + e);
 			e.printStackTrace();
 		}
 		return resource;
@@ -190,13 +187,12 @@ public class PerformTransformation {
 		Resource resource = null;
 		try {
 			URI uriUri = URI.createURI(uri);
-			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-					"statemachine", new XMIResourceFactoryImpl());
+			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 			resource = (new ResourceSetImpl()).createResource(uriUri);
 			resource.getContents().add(root);
 			resource.save(null);
 		} catch (Exception e) {
-			System.out.println("Erreur lors de la sauvagarde du modele");
+			System.err.println("ERREUR lors de la sauvegarde du modèle : " + e);
 			e.printStackTrace();
 		}
 	}
