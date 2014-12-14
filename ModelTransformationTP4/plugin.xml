@@ -14,4 +14,12 @@
             genModel="model/StateMachine.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Papyrus-model -->
+      <package
+            uri="http:///model.ecore"
+            class="model.ModelPackage"
+            genModel="umlmodel/Papyrus-model.genmodel"/>
+   </extension>
+
 </plugin>

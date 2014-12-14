@@ -9,7 +9,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: fr.houssam.transformation.model.statemachine,
  fr.houssam.transformation.model.statemachine.impl,
- fr.houssam.transformation.model.statemachine.util
+ fr.houssam.transformation.model.statemachine.util,
+ model,
+ model.impl,
+ model.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

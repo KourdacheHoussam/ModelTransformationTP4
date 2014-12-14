@@ -156,26 +156,18 @@ public class PerformTransformation {
 	 *  Load the ecore model
 	 *  @param model
 	 */
+	@SuppressWarnings("unchecked")
 	public static Resource loadModel(String uri, EPackage pack){
 		Resource resource=null;
 		try{
-			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		    Map<String, Object> m = reg.getExtensionToFactoryMap();
-		    m.put("statemachine", new XMIResourceFactoryImpl()); 
-			
-		    //Récupérer une nouvelle resourceSet
-		    ResourceSet resSet=new ResourceSetImpl();
-			URI file_uri=URI.createURI(uri); //crée une uri
-		    //création de la resource
-		    resource=resSet.createResource(file_uri);
-		    
-		    XMLResource.XMLMap xmlMap=new XMLMapImpl();
-		    xmlMap.setNoNamespacePackage(pack);
-		    
-		    Map options=new HashMap();
-		    options.put(XMLResource.OPTION_XML_MAP, xmlMap);
-		    resource.load(options);//charge le model		    
-		    
+			URI uriUri=URI.createURI(uri);
+			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("uml", new XMIResourceFactoryImpl());
+			resource=(new ResourceSetImpl()).createResource(uriUri);
+			XMLResource.XMLMap xmlMap=new XMLMapImpl();
+			xmlMap.setNoNamespacePackage(pack);
+			Map options=new HashMap();
+			options.put(XMLResource.OPTION_XML_MAP, xmlMap);
+			resource.load(options);	    
 		}catch(Exception e){
 			System.out.println("Erreur de chargemement du model : "+ uri);
 			e.printStackTrace();
@@ -200,8 +192,20 @@ public class PerformTransformation {
 		}
 	}
 	
+	/**
+	 * Main Class
+	 * @param args
+	 */
+	
 	public static void main(String [] args){
-		System.out.println("Sssssssssss");
+		Resource resource;		
+		//Je charge l'intance uml.uml de mon méta-modele
+		try{
+			resource=loadModel("umlmodel/uml.uml", null);
+		}catch(Exception e){
+			System.out.println("Some problem");
+			e.printStackTrace();
+		}
 	}
 	
 }
