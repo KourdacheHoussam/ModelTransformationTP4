@@ -31,33 +31,41 @@ import fr.houssam.transformation.model.statemachine.util.StatemachineAdapterFact
 
 public class PerformTransformation {
 	
-	BasicClass classToTransform;
+	//private BasicClass classToTransform;
 	
 	/** Perform the tranforomation:main class */
 	
-	public static void performIT(Class maclass){
-	
+	public static void performIT(Class maclass){	
 		//Je charge l'instance map.xmi du meta-modle maps.ecore
-		Resource resource = loadModel("model/StateMachine.ecore",  StatemachinePackage.eINSTANCE);
-		
+		Resource resource = loadModel("model/StateMachine.ecore",  StatemachinePackage.eINSTANCE);		
 		if (resource == null){
 			System.err.println(" Erreur de chargement du modele");		
-		}
-		
-		//Instruction recuperant le modele sous forme d'arbre a  partir de la classe racine "class"
-		
+		}		
+		//Instruction recuperant le modele sous forme d'arbre a  partir de la classe racine "class"		
 		Class uml = (Class) resource.getContents().get(0);				
-		StatemachineFactory.eINSTANCE.createRegion();
-		
-		
+		StatemachineFactory.eINSTANCE.createRegion();		
 	}
 	
+	/**
+	 * Ajout des etats
+	 * @param sm
+	 */
 	public static void AddStates(StateMachine sm){
 		ArrayList<State> states=collecteStates(sm);
 		for(int i=0; i<states.size(); i++){
-			State s=StatemachineFactory.eINSTANCE.createState();
-			
+			State s=StatemachineFactory.eINSTANCE.createState();			
 		}		
+	}
+	/**
+	 * Ajout des operations
+	 * @param sm
+	 */
+	public static void AddOperations(StateMachine sm){
+		ArrayList<Operation> ops=collecteStatesTriggeredOperations(sm);
+		for(int i=0; i<ops.size(); i++){
+			Operation o=StatemachineFactory.eINSTANCE.createOperation();
+			
+		}
 	}
 	/**
 	 * Recuperer toutes les machines à états: prenant en parametre une classe, et qui retourne
@@ -139,11 +147,7 @@ public class PerformTransformation {
 	 * d'une methode qui appliquerait le patron State a une classe donnee
 	 */
 	public static void setStatePattern(Class maclass){
-		ArrayList<StateMachine> machines=getAllStateMachines(maclass);
-		for(int i=0; i<machines.size(); i++){
-			ArrayList<State> states=collecteStates(machines.get(i));
-			ArrayList<Operation> operations=collecteStatesTriggeredOperations(machines.get(i));
-		}
+	
 	}
 	
 	
@@ -196,6 +200,8 @@ public class PerformTransformation {
 		}
 	}
 	
-	
+	public static void main(String [] args){
+		System.out.println("Sssssssssss");
+	}
 	
 }

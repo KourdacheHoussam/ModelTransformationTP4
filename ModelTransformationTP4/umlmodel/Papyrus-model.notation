@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:css="http://www.eclipse.org/papyrus/infra/gmfdiag/css" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_msRVsXpTEeS3mKmuOCgw9A" type="PapyrusUMLClassDiagram" name="NewDiagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_BJ_KoHpUEeS3mKmuOCgw9A" type="2008">
+      <children xmi:type="notation:DecorationNode" xmi:id="_BLCTgHpUEeS3mKmuOCgw9A" type="5029"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_BLOgwHpUEeS3mKmuOCgw9A" type="7017">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UdnXcHpUEeS3mKmuOCgw9A" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UdnXcXpUEeS3mKmuOCgw9A" key="collapsed" value="true"/>
+        </eAnnotations>
+        <children xmi:type="notation:Shape" xmi:id="__JaSoHpWEeS3mKmuOCgw9A" type="3012">
+          <element xmi:type="uml:Property" href="Papyrus-model.uml#__JB4IHpWEeS3mKmuOCgw9A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="__JaSoXpWEeS3mKmuOCgw9A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_EKdxsXpXEeS3mKmuOCgw9A" type="3012">
+          <element xmi:type="uml:Property" href="Papyrus-model.uml#_EKdxsHpXEeS3mKmuOCgw9A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_EKdxsnpXEeS3mKmuOCgw9A"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_BLOgwXpUEeS3mKmuOCgw9A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_BLOgwnpUEeS3mKmuOCgw9A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_BLOgw3pUEeS3mKmuOCgw9A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BLOgxHpUEeS3mKmuOCgw9A"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_BLOgxXpUEeS3mKmuOCgw9A" type="7018">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UI0zMHpUEeS3mKmuOCgw9A" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UI0zMXpUEeS3mKmuOCgw9A" key="collapsed" value="true"/>
+        </eAnnotations>
+        <children xmi:type="notation:Shape" xmi:id="_rY19EHpUEeS3mKmuOCgw9A" type="3013">
+          <element xmi:type="uml:Operation" href="Papyrus-model.uml#_rYv2cHpUEeS3mKmuOCgw9A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_rY19EXpUEeS3mKmuOCgw9A"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_BLOgxnpUEeS3mKmuOCgw9A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_BLOgx3pUEeS3mKmuOCgw9A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_BLOgyHpUEeS3mKmuOCgw9A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BLOgyXpUEeS3mKmuOCgw9A"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_BLOgynpUEeS3mKmuOCgw9A" type="7019">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_BLOgy3pUEeS3mKmuOCgw9A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_BLOgzHpUEeS3mKmuOCgw9A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_BLOgzXpUEeS3mKmuOCgw9A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BLOgznpUEeS3mKmuOCgw9A"/>
+      </children>
+      <element xmi:type="uml:Class" href="Papyrus-model.uml#_BGRIQHpUEeS3mKmuOCgw9A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJ_KoXpUEeS3mKmuOCgw9A" x="298" y="12" width="192" height="129"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_msRVsnpTEeS3mKmuOCgw9A" name="diagram_compatibility_version" stringValue="1.0.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_msRVs3pTEeS3mKmuOCgw9A"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_msRVtHpTEeS3mKmuOCgw9A">
+      <owner xmi:type="uml:Model" href="Papyrus-model.uml#_msRVsHpTEeS3mKmuOCgw9A"/>
+    </styles>
+    <element xmi:type="uml:Model" href="Papyrus-model.uml#_msRVsHpTEeS3mKmuOCgw9A"/>
+  </notation:Diagram>
+  <css:ModelStyleSheets xmi:id="_ZXM8kHpUEeS3mKmuOCgw9A"/>
+</xmi:XMI>
