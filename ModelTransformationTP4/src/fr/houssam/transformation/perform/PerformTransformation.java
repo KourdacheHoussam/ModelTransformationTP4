@@ -174,7 +174,7 @@ public class PerformTransformation {
 			options.put(XMLResource.OPTION_XML_MAP, xmlMap);
 			resource.load(options);
 		} catch (Exception e) {
-			System.err.println("ERREUR chargement du modÃ¨le : " + e);
+			System.err.println("ERREUR chargement du modèle : " + e +"\n");
 			e.printStackTrace();
 		}
 		return resource;
@@ -198,16 +198,20 @@ public class PerformTransformation {
 	}
 
 	/**
-	 * Main Class
-	 * 
+	 * Main Class 
 	 * @param args
 	 */
 
 	public static void main(String[] args) {
+		
+		System.err.println("****************************");
+		System.err.println("*** Model Transformation ***");
+		System.err.println("****************************");
+		
 		Resource resource;
 		try {
 			// Je charge l'intance uml.uml de mon méta-modele
-			resource = loadModel("umlmodel/uml.uml", ModelPackage.eINSTANCE);
+			resource = loadModel("model/modelpapyrus.uml", ModelPackage.eINSTANCE);
 			if (resource == null) {
 				System.err.print("Erreur de chargement du modèle");
 			}

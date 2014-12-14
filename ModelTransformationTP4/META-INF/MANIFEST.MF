@@ -7,9 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: fr.houssam.transformation.model.statemachine,
- fr.houssam.transformation.model.statemachine.impl,
- fr.houssam.transformation.model.statemachine.util,
+Export-Package: 
  model,
  model.impl,
  model.util

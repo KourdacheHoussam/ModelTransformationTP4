@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    modelDirectory="/ModelTransformationTP4/src" modelPluginID="ModelTransformationTP4"
+    modelName="Modelpapyrus" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+  </genAnnotations>
+  <foreignModel>modelpapyrus.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Model" disposableProviderFactory="true"
+      ecorePackage="model.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Personne">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Personne/name"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Personne/age"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Personne/statut"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Personne/ChangeStatut">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Personne/ChangeStatut/age"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//MyStateMachine"/>
+  </genPackages>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Ecore" disposableProviderFactory="true"
+      ecorePackage="ecore.ecore#/">
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EClassifier_EJavaClass_Wildcard"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EJavaObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EBoolean"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EInt"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EStructuralFeature_EJavaClass_Wildcard"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EResource"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EObject_EEList_EObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EObject_ETreeIterator_EObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EEnumerator"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EBigDecimal"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EBigInteger"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EBooleanObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EByte"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EByteArray"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EByteObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EChar"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//ECharacterObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EDate"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EDiagnosticChain"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EDouble"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EDoubleObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EEList">
+      <genTypeParameters ecoreTypeParameter="ecore.ecore#//EEList/E"/>
+    </genDataTypes>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EFeatureMap"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EFeatureMapEntry"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EFloat"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EFloatObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EIntegerObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EJavaClass">
+      <genTypeParameters ecoreTypeParameter="ecore.ecore#//EJavaClass/T"/>
+    </genDataTypes>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//ELong"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//ELongObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EMap">
+      <genTypeParameters ecoreTypeParameter="ecore.ecore#//EMap/K"/>
+      <genTypeParameters ecoreTypeParameter="ecore.ecore#//EMap/V"/>
+    </genDataTypes>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EResourceSet"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EShort"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EShortObject"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//ETreeIterator">
+      <genTypeParameters ecoreTypeParameter="ecore.ecore#//ETreeIterator/E"/>
+    </genDataTypes>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EInvocationTargetException"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="ecore.ecore#//EString"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EAnnotation">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference ecore.ecore#//EAnnotation/eModelElement"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EAnnotation/source"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EAnnotation/details"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EAnnotation/contents"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EAnnotation/references"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="ecore.ecore#//EModelElement">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EModelElement/eAnnotations"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EModelElement/getEAnnotation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EModelElement/getEAnnotation/source"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EObject">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eClass"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eIsProxy"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eResource"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eContainer"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eContainingFeature"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eContainmentFeature"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eContents"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eAllContents"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eCrossReferences"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eGet">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EObject/eGet/feature"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eGet.1">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EObject/eGet.1/feature"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EObject/eGet.1/resolve"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eSet">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EObject/eSet/feature"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EObject/eSet/newValue"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eIsSet">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EObject/eIsSet/feature"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EObject/eUnset">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EObject/eUnset/feature"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EClass">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EClass/abstract"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EClass/interface"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eSuperTypes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eOperations"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAllAttributes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eStructuralFeatures"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAllReferences"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eReferences"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAttributes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAllContainments"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAllOperations"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAllStructuralFeatures"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAllSuperTypes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eIDAttribute"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eGenericSuperTypes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EClass/eAllGenericSuperTypes"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EClass/isSuperTypeOf">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EClass/isSuperTypeOf/someClass"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EClass/getFeatureCount"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EClass/getEStructuralFeature">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EClass/getEStructuralFeature/featureID"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EClass/getFeatureID">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EClass/getFeatureID/feature"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EClass/getEStructuralFeature.1">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EClass/getEStructuralFeature.1/featureName"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="ecore.ecore#//EClassifier">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EClassifier/instanceClassName"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute ecore.ecore#//EClassifier/instanceClass"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute ecore.ecore#//EClassifier/defaultValue"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EClassifier/instanceTypeName"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference ecore.ecore#//EClassifier/ePackage"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EClassifier/eTypeParameters"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EClassifier/isInstance">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EClassifier/isInstance/object"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EClassifier/getClassifierID"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="ecore.ecore#//ENamedElement">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//ENamedElement/name"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EPackage">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EPackage/nsURI"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EPackage/nsPrefix"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EPackage/eFactoryInstance"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EPackage/eSubpackages"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference ecore.ecore#//EPackage/eSuperPackage"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EPackage/eClassifiers"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EPackage/getEClassifier">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EPackage/getEClassifier/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EFactory">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EFactory/ePackage"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EFactory/create">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EFactory/create/eClass"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EFactory/createFromString">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EFactory/createFromString/eDataType"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EFactory/createFromString/literalValue"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EFactory/convertToString">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EFactory/convertToString/eDataType"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EFactory/convertToString/instanceValue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EDataType">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EDataType/serializable"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//ETypeParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//ETypeParameter/eBounds"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EGenericType">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EGenericType/eUpperBound"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EGenericType/eTypeArguments"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EGenericType/eRawType"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EGenericType/eLowerBound"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EGenericType/eTypeParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EGenericType/eClassifier"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EClassifier_Wildcard"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EOperation">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EOperation/eTypeParameters"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EOperation/eParameters"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EOperation/eExceptions"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EOperation/eGenericExceptions"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference ecore.ecore#//EOperation/eContainingClass"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="ecore.ecore#//ETypedElement">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//ETypedElement/ordered"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//ETypedElement/unique"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//ETypedElement/lowerBound"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//ETypedElement/upperBound"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute ecore.ecore#//ETypedElement/many"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute ecore.ecore#//ETypedElement/required"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//ETypedElement/eType"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//ETypedElement/eGenericType"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference ecore.ecore#//EParameter/eOperation"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EAttribute">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EAttribute/iD"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EAttribute/eAttributeType"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="ecore.ecore#//EStructuralFeature">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference ecore.ecore#//EStructuralFeature/eContainingClass"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStructuralFeature/changeable"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStructuralFeature/volatile"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStructuralFeature/transient"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStructuralFeature/defaultValueLiteral"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute ecore.ecore#//EStructuralFeature/defaultValue"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStructuralFeature/unsettable"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStructuralFeature/derived"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EStructuralFeature/getFeatureID"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EStructuralFeature/getContainerClass"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EStructuralFeature_Wildcard"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EReference">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EReference/containment"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" createChild="false"
+          ecoreFeature="ecore:EAttribute ecore.ecore#//EReference/container"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EReference/resolveProxies"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EReference/eOpposite"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ecore.ecore#//EReference/eReferenceType"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ecore.ecore#//EReference/eKeys"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EStringToStringMapEntry">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStringToStringMapEntry/key"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EStringToStringMapEntry/value"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EEnum">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ecore.ecore#//EEnum/eLiterals"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EEnum/getEEnumLiteral">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EEnum/getEEnumLiteral/name"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EEnum/getEEnumLiteral.1">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EEnum/getEEnumLiteral.1/value"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="ecore.ecore#//EEnum/getEEnumLiteralByLiteral">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="ecore.ecore#//EEnum/getEEnumLiteralByLiteral/literal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ecore.ecore#//EEnumLiteral">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EEnumLiteral/value"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EEnumLiteral/instance"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ecore.ecore#//EEnumLiteral/literal"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference ecore.ecore#//EEnumLiteral/eEnum"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

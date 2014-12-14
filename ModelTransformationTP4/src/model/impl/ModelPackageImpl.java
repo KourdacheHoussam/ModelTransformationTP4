@@ -2,6 +2,7 @@
  */
 package model.impl;
 
+
 import model.ModelFactory;
 import model.ModelPackage;
 import model.MyStateMachine;
@@ -12,8 +13,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.impl.EcorePackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,14 +83,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theModelPackage.createPackageContents();
+		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theModelPackage.initializePackageContents();
+		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theModelPackage.freeze();
