@@ -7,12 +7,13 @@ import java.util.Map;
 import model.ModelPackage;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.*;
+import org.eclipse.emf.common.util.*;
+import org.eclipse.emf.ecore.*;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.XMLResource.XMLMap;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
 
@@ -170,7 +171,7 @@ public class PerformTransformation {
 			resource = (new ResourceSetImpl()).createResource(uriUri);
 			XMLResource.XMLMap xmlMap = new XMLMapImpl();
 			xmlMap.setNoNamespacePackage(pack);
-			java.util.Map options = new java.util.HashMap();
+			Map<String, XMLMap> options = new HashMap<String, XMLMap>();
 			options.put(XMLResource.OPTION_XML_MAP, xmlMap);
 			resource.load(options);
 		} catch (Exception e) {
