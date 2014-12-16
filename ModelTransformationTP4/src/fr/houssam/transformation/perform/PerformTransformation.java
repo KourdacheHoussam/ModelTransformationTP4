@@ -1,23 +1,32 @@
 package fr.houssam.transformation.perform;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.PackageableElement;
+import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.UMLPackage;
-import org.eclipse.uml2.*;
+import org.eclipse.uml2.types.*;
+
 import model.ModelPackage;
+
 import org.eclipse.emf.common.util.*;
 import org.eclipse.emf.ecore.*;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLResource.XMLMap;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
 import org.eclipse.uml2.uml.Model;
-import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.types.*;
+import org.eclipse.uml2.types.*;
+
 import fr.houssam.transformation.model.statemachine.Behavior;
 import fr.houssam.transformation.model.statemachine.CallEvent;
 import fr.houssam.transformation.model.statemachine.Class;
@@ -168,7 +177,7 @@ public class PerformTransformation {
 		Resource resource = null;
 		try {
 			URI uriUri = URI.createURI(uri);
-			//EPackage.Registry.INSTANCE.put("'http://www.eclipse.org/uml2/5.0.0/UML",UMLPackage.eINSTANCE);
+			EPackage.Registry.INSTANCE.put("'http://www.eclipse.org/uml2/5.0.0/UML",UMLPackage.eINSTANCE);
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("uml", new XMIResourceFactoryImpl());
 			resource = (new ResourceSetImpl()).createResource(uriUri);
 			XMLResource.XMLMap xmlMap = new XMLMapImpl();
@@ -186,14 +195,14 @@ public class PerformTransformation {
 	/**
 	 * Sauvegarde du modele genere
 	 */
-	public static void SaveModel(String uri, EObject root) {
+	public static void SaveModel(String uri, StateMachine data) {
 		Resource resource = null;
 		try {
 			URI uriUri = URI.createURI(uri);
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 			resource = (new ResourceSetImpl()).createResource(uriUri);
-			resource.getContents().add(root);
-			resource.save(null);
+			resource.getContents().add(data);
+			resource.save(Collections.EMPTY_MAP);
 		} catch (Exception e) {
 			System.err.println("ERREUR lors de la sauvegarde du modèle : " + e);
 			e.printStackTrace();
@@ -214,13 +223,40 @@ public class PerformTransformation {
 
 		// Je charge l'intance uml.uml de mon méta-modele
 		Resource resource = loadModel("model/modelpapyrus.uml", UMLPackage.eINSTANCE);
+		if(resource !=null){
+			System.err.print("Le modèle est chargé ");
+		}
 		if (resource == null) {
 			System.err.print("Erreur de chargement du modèle");
 		}
-		// Instruction recuperant le modele sous forme d'arbre à partir de
-		// la classe racine Model
-		Model umlp=(Model)resource.getContents().get(0);
-		String nomModel;
-
+		// Instruction recuperant le modele sous forme d'arbre à partir de la classe racine Model
+		Model umlp=(Model)resource.getContents().get(0);		
+		
+		String nomModel=umlp.getName();
+		
+		EList<PackageableElement> package_element=umlp.getPackagedElements();
+		System.out.println("\n \n Nom du modèle est : " + nomModel);
+		for(int v=0; v<package_element.size(); v++){
+			System.out.println("\n \n Nom du modèle est : " + package_element. );
+		}
+		System.out.println("\n \n Nom du modèle est : " + package_element. );
+		
+		
+		/**********************
+		 ** SAVE the model ****
+		 **********************/
+		StatemachinePackage.eINSTANCE.eClass();
+		StatemachineFactory factory=StatemachineFactory.eINSTANCE;
+		
+		//Creation du contenu du model : une machine à état et une region
+		StateMachine machine=factory.createStateMachine();
+		Region region=factory.createRegion();
+		
+		
+		
+		umlp.getImportedPackages();
+		
+		//SaveModel("model/generated.ecore", machine);
+		
 	}
 }

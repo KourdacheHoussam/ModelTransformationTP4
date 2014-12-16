@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" 
 	xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_msRVsHpTEeS3mKmuOCgw9A" name="StateMachine" URI="http:///StateMachine.ecore">
-  <packagedElement xmi:type="uml:Class" xmi:id="_BGRIQHpUEeS3mKmuOCgw9A" name="Personne" URI="">
+  <packagedElement xmi:type="uml:Class" xmi:id="_BGRIQHpUEeS3mKmuOCgw9A" name="Personne" >
     <ownedAttribute xmi:id="__JB4IHpWEeS3mKmuOCgw9A" name="name">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
     </ownedAttribute>
@@ -17,6 +17,7 @@
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
+  
   <packagedElement xmi:type="uml:StateMachine" xmi:id="_vlpNkIN8EeS9UNJzWkrD3A" name="MyStateMachine" specification="_rYv2cHpUEeS3mKmuOCgw9A" submachineState="_NopcQIN_EeS9UNJzWkrD3A">
     <region xmi:id="_2tJmUIN9EeS9UNJzWkrD3A" name="PersonneX">
       <transition xmi:id="_WNQFIIOAEeS9UNJzWkrD3A" name="naissance" redefinedTransition="_WNQFIIOAEeS9UNJzWkrD3A" source="_aa5mwIN_EeS9UNJzWkrD3A" target="_NopcQIN_EeS9UNJzWkrD3A"/>
