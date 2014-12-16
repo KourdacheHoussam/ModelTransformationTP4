@@ -1,5 +1,6 @@
 package fr.houssam.transformation.perform;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -195,7 +196,7 @@ public class PerformTransformation {
 	/**
 	 * Sauvegarde du modele genere
 	 */
-	public static void SaveModel(String uri, StateMachine data) {
+	public static void SaveModel(String uri, EObject data) {
 		Resource resource = null;
 		try {
 			URI uriUri = URI.createURI(uri);
@@ -203,6 +204,7 @@ public class PerformTransformation {
 			resource = (new ResourceSetImpl()).createResource(uriUri);
 			resource.getContents().add(data);
 			resource.save(Collections.EMPTY_MAP);
+			System.err.println("Saved :) !");
 		} catch (Exception e) {
 			System.err.println("ERREUR lors de la sauvegarde du modèle : " + e);
 			e.printStackTrace();
@@ -213,9 +215,10 @@ public class PerformTransformation {
 	 * Main Class
 	 * 
 	 * @param args
+	 * @throws IOException 
 	 */
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		System.err.println("****************************");
 		System.err.println("*** Model Transformation ***");
@@ -234,12 +237,7 @@ public class PerformTransformation {
 		
 		String nomModel=umlp.getName();
 		
-		EList<PackageableElement> package_element=umlp.getPackagedElements();
-		System.out.println("\n \n Nom du modèle est : " + nomModel);
-		for(int v=0; v<package_element.size(); v++){
-			System.out.println("\n \n Nom du modèle est : " + package_element. );
-		}
-		System.out.println("\n \n Nom du modèle est : " + package_element. );
+
 		
 		
 		/**********************
@@ -252,11 +250,30 @@ public class PerformTransformation {
 		StateMachine machine=factory.createStateMachine();
 		Region region=factory.createRegion();
 		
+		EList<PackageableElement> package_element=umlp.getPackagedElements();
+		System.out.println("\n \n Nom du modèle est : " + nomModel);
+		for(int v=0; v<package_element.size(); v++){
+			//Affiche le nom des packages
+			if(package_element.get(v).getName()=="MyStateMachine"){
+				System.out.println("\n \n Nom du modèle est : " + package_element.get(v).getName() );
+				
+				PackageableElement current_package=package_element.get(v);				
+				//On ajout à notre machine à état le nom du package récupéré
+				machine.setBehaviortransition(null);
+				//on récupére sa region
+				System.out.println("size"+current_package.getOwnedElements().size());
+				
+			}
+			
+		}
+
 		
 		
-		umlp.getImportedPackages();
 		
-		//SaveModel("model/generated.ecore", machine);
+
+		
+		
+		SaveModel("model/generated.xmi", machine);
 		
 	}
 }
