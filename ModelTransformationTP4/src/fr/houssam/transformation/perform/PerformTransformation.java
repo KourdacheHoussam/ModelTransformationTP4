@@ -3,11 +3,10 @@ package fr.houssam.transformation.perform;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.uml2.uml.UMLPackage;
+import org.eclipse.uml2.*;
 import model.ModelPackage;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.*;
 import org.eclipse.emf.common.util.*;
 import org.eclipse.emf.ecore.*;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -16,7 +15,9 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.XMLResource.XMLMap;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
-
+import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.UMLPackage;
+import org.eclipse.uml2.types.*;
 import fr.houssam.transformation.model.statemachine.Behavior;
 import fr.houssam.transformation.model.statemachine.CallEvent;
 import fr.houssam.transformation.model.statemachine.Class;
@@ -31,7 +32,7 @@ import fr.houssam.transformation.model.statemachine.Trigger;
 import fr.houssam.transformation.model.statemachine.Vertex;
 
 public class PerformTransformation {
-	
+
 	/** Perform the tranforomation:main class */
 
 	public static void performIT(Class maclass) {
@@ -167,6 +168,7 @@ public class PerformTransformation {
 		Resource resource = null;
 		try {
 			URI uriUri = URI.createURI(uri);
+			//EPackage.Registry.INSTANCE.put("'http://www.eclipse.org/uml2/5.0.0/UML",UMLPackage.eINSTANCE);
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("uml", new XMIResourceFactoryImpl());
 			resource = (new ResourceSetImpl()).createResource(uriUri);
 			XMLResource.XMLMap xmlMap = new XMLMapImpl();
@@ -175,7 +177,7 @@ public class PerformTransformation {
 			options.put(XMLResource.OPTION_XML_MAP, xmlMap);
 			resource.load(options);
 		} catch (Exception e) {
-			System.err.println("ERREUR chargement du modèle : " + e +"\n");
+			System.err.println("ERREUR chargement du modèle : " + e + "\n");
 			e.printStackTrace();
 		}
 		return resource;
@@ -199,31 +201,26 @@ public class PerformTransformation {
 	}
 
 	/**
-	 * Main Class 
+	 * Main Class
+	 * 
 	 * @param args
 	 */
 
 	public static void main(String[] args) {
-		
+
 		System.err.println("****************************");
 		System.err.println("*** Model Transformation ***");
 		System.err.println("****************************");
-		
-		Resource resource;
-		try {
-			// Je charge l'intance uml.uml de mon méta-modele
-			resource = loadModel("model/modelpapyrus.uml", ModelPackage.eINSTANCE);
-			if (resource == null) {
-				System.err.print("Erreur de chargement du modèle");
-			}
-			// Instruction recuperant le modele sous forme d'arbre à partir de
-			// la classe racine Model
-			//Model umlp=(Model)resource.getContents().get(0);
-			String nomModel;
-			
-		} catch (Exception e) {
-			System.out.println("Some problem");
-			e.printStackTrace();
+
+		// Je charge l'intance uml.uml de mon méta-modele
+		Resource resource = loadModel("model/modelpapyrus.uml", UMLPackage.eINSTANCE);
+		if (resource == null) {
+			System.err.print("Erreur de chargement du modèle");
 		}
+		// Instruction recuperant le modele sous forme d'arbre à partir de
+		// la classe racine Model
+		Model umlp=(Model)resource.getContents().get(0);
+		String nomModel;
+
 	}
 }
