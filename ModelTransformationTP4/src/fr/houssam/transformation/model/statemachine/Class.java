@@ -14,4 +14,6 @@ package fr.houssam.transformation.model.statemachine;
  * @generated
  */
 public interface Class extends BehavioredClassifier {
+
+//String getName();
 } // Class

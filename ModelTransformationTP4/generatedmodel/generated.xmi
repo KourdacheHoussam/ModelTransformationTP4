@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" name="StateMachine">
+  <packagedElement xsi:type="uml:Package" name="PackOne">
+    <packagedElement xsi:type="uml:Class" name="Mineur">
+      <generalization general="//PackOne/State"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Majeur">
+      <generalization general="//PackOne/State"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Vieux">
+      <generalization general="//PackOne/State"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="born">
+      <generalization general="//PackOne/State"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="dead">
+      <generalization general="//PackOne/State"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="MyStateMachine"/>
+    <packagedElement xsi:type="uml:Class" name="State" isAbstract="true"/>
+  </packagedElement>
+</uml:Model>

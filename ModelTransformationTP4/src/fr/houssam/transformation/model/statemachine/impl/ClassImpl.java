@@ -35,4 +35,5 @@ public class ClassImpl extends BehavioredClassifierImpl implements fr.houssam.tr
 		return StatemachinePackage.Literals.CLASS;
 	}
 
+
 } //ClassImpl

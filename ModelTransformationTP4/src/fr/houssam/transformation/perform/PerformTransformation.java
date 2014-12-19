@@ -7,13 +7,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.PackageableElement;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.UMLFactory;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.types.*;
+import org.eclipse.uml2.uml.Class;
 
 import model.ModelPackage;
+
+
+
+
 
 import org.eclipse.emf.common.util.*;
 import org.eclipse.emf.ecore.*;
@@ -25,12 +36,9 @@ import org.eclipse.emf.ecore.xmi.XMLResource.XMLMap;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
 import org.eclipse.uml2.uml.Model;
-import org.eclipse.uml2.types.*;
-import org.eclipse.uml2.types.*;
 
 import fr.houssam.transformation.model.statemachine.Behavior;
 import fr.houssam.transformation.model.statemachine.CallEvent;
-import fr.houssam.transformation.model.statemachine.Class;
 import fr.houssam.transformation.model.statemachine.Operation;
 import fr.houssam.transformation.model.statemachine.Region;
 import fr.houssam.transformation.model.statemachine.State;
@@ -41,22 +49,8 @@ import fr.houssam.transformation.model.statemachine.Transition;
 import fr.houssam.transformation.model.statemachine.Trigger;
 import fr.houssam.transformation.model.statemachine.Vertex;
 
+
 public class PerformTransformation {
-
-	/** Perform the tranforomation:main class */
-
-	public static void performIT(Class maclass) {
-		// Je charge l'instance map.xmi du meta-modle maps.ecore
-		Resource resource = loadModel("model/StateMachine.ecore",
-				StatemachinePackage.eINSTANCE);
-		if (resource == null) {
-			System.err.println(" Erreur de chargement du modele");
-		}
-		// Instruction recuperant le modele sous forme d'arbre a partir de la
-		// classe racine "class"
-		Class uml = (Class) resource.getContents().get(0);
-		StatemachineFactory.eINSTANCE.createRegion();
-	}
 
 	/**
 	 * Ajout des etats
@@ -90,7 +84,7 @@ public class PerformTransformation {
 	@SuppressWarnings("null")
 	public static ArrayList<StateMachine> getAllStateMachines(Class maclass) {
 		// on récupère la liste de tous les comportenment de la classe
-		EList<Behavior> behaviors = maclass.getOwnedBehavior();
+		EList<Behavior> behaviors = (EList<Behavior>) maclass.getClassifierBehavior();
 		// bahaviors with statemachine type
 		EList<Behavior> statebehaviors = null;
 		ArrayList<StateMachine> results = new ArrayList<StateMachine>();
@@ -227,53 +221,93 @@ public class PerformTransformation {
 		// Je charge l'intance uml.uml de mon méta-modele
 		Resource resource = loadModel("model/modelpapyrus.uml", UMLPackage.eINSTANCE);
 		if(resource !=null){
-			System.err.print("Le modèle est chargé ");
+			System.err.print("Le modèle est chargé.\n \n ");
 		}
 		if (resource == null) {
-			System.err.print("Erreur de chargement du modèle");
+			System.err.print("Erreur de chargement du modèle. \n");
 		}
+		
+		
 		// Instruction recuperant le modele sous forme d'arbre à partir de la classe racine Model
-		Model umlp=(Model)resource.getContents().get(0);		
-		
-		String nomModel=umlp.getName();
-		
-
-		
-		
-		/**********************
-		 ** SAVE the model ****
-		 **********************/
-		StatemachinePackage.eINSTANCE.eClass();
-		StatemachineFactory factory=StatemachineFactory.eINSTANCE;
-		
-		//Creation du contenu du model : une machine à état et une region
-		StateMachine machine=factory.createStateMachine();
-		Region region=factory.createRegion();
-		
-		EList<PackageableElement> package_element=umlp.getPackagedElements();
-		System.out.println("\n \n Nom du modèle est : " + nomModel);
-		for(int v=0; v<package_element.size(); v++){
-			//Affiche le nom des packages
-			if(package_element.get(v).getName()=="MyStateMachine"){
-				System.out.println("\n \n Nom du modèle est : " + package_element.get(v).getName() );
+		Model initialModel=(Model)resource.getContents().get(0);			
+		// Creation d'un package
+		org.eclipse.uml2.uml.Package newPackage=UMLFactory.eINSTANCE.createPackage();
+		//Creation d'un model 2 
+		Model newModel=(Model) UMLFactory.eINSTANCE.createModel();
 				
-				PackageableElement current_package=package_element.get(v);				
-				//On ajout à notre machine à état le nom du package récupéré
-				machine.setBehaviortransition(null);
-				//on récupére sa region
-				System.out.println("size"+current_package.getOwnedElements().size());
-				
-			}
-			
+		//Ajout du package ds le model
+		newModel.setName(initialModel.getName());
+		newPackage.setName("PackOne");
+		newModel.getPackagedElements().add(newPackage);
+		
+		//Get the name of class model
+		PackageableElement  modelPackage_SM=(PackageableElement) initialModel.getPackagedElement("MyStateMachine");
+		
+		org.eclipse.uml2.uml.Class c = (org.eclipse.uml2.uml.Class) initialModel.getPackagedElements().get(1);
+		
+		
+		//Abstract class :TD
+		org.eclipse.uml2.uml.Class abstractClass=(org.eclipse.uml2.uml.Class) UMLFactory.eINSTANCE.createClass();
+		abstractClass.setIsAbstract(true);
+		abstractClass.setName("State");
+		
+		//First Main Class
+		org.eclipse.uml2.uml.Class theClass=UMLFactory.eINSTANCE.createClass();
+		theClass.setName(c.getName());
+		
+		//Ajout des properties dans la class
+		for(Property currentProperty : c.getOwnedAttributes()){
+			Property newProperty=UMLFactory.eINSTANCE.createProperty();
+			newProperty.setName(currentProperty.getName());
+			newProperty.setVisibility(currentProperty.getVisibility());
+			theClass.getOwnedAttributes().add(newProperty);
 		}
-
+		//Ajout des operations dans la classe
+		for(org.eclipse.uml2.uml.Operation currentOperation : c.getOwnedOperations()){
+			org.eclipse.uml2.uml.Operation newOperation=(org.eclipse.uml2.uml.Operation) UMLFactory.eINSTANCE.createOperation();
+			newOperation.setName(currentOperation.getName());
+			newOperation.setVisibility(currentOperation.getVisibility());
+			theClass.getOwnedOperations().add(newOperation);
+		}
+		
+		//Get the states
+		org.eclipse.uml2.uml.StateMachine stateMachine=(org.eclipse.uml2.uml.StateMachine) initialModel.getPackagedElements().get(1);
+		org.eclipse.uml2.uml.Region region=(org.eclipse.uml2.uml.Region)stateMachine.getRegions().get(0);
+		
+		// Vertices LOOOOP
+		for(org.eclipse.uml2.uml.Vertex currentVertex: region.getSubvertices()){
+			org.eclipse.uml2.uml.Class stateClass=UMLFactory.eINSTANCE.createClass();
+			stateClass.setName(currentVertex.getName());
+			org.eclipse.uml2.uml.Generalization generalization=UMLFactory.eINSTANCE.createGeneralization();
+			generalization.setGeneral(abstractClass);
+			stateClass.getGeneralizations().add(generalization);
+			newPackage.getPackagedElements().add(stateClass);
+		}
+		
+		//bind to abstract class
+		org.eclipse.uml2.uml.Property bindIt=UMLFactory.eINSTANCE.createProperty();
+		bindIt.setType(abstractClass);
+		bindIt.setName("state");
+		bindIt.setVisibility(null);
+		
+		newPackage.getPackagedElements().add(theClass);
+		newPackage.getPackagedElements().add(abstractClass);
 		
 		
 		
-
+		/*************************
+		 * Les sorties consoles
+		 *************************/
+		System.out.println(" Nom du model : "+initialModel.getName()+"\n");		
+		System.out.println(" Nom du package SM : "+modelPackage_SM.getName()+"\n");
+		System.out.println(" Class c name: "+theClass.getName()+"\n");
+		System.out.println(" State machine  name: "+stateMachine.getName()+"\n");
+		System.out.println(" Region  name: "+region.getName()+"\n");
+	
 		
 		
-		SaveModel("model/generated.xmi", machine);
+		/** SAVE the model **/
 		
+		SaveModel("generatedmodel/generated.xmi", newModel);		
 	}
 }
