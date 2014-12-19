@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.uml2.uml.Constraint;
@@ -23,6 +24,7 @@ import org.eclipse.uml2.types.*;
 import org.eclipse.uml2.uml.Class;
 
 import model.ModelPackage;
+
 
 
 
@@ -131,21 +133,32 @@ public class PerformTransformation {
 			stateClass.setName(currentVertex.getName());
 			org.eclipse.uml2.uml.Generalization generalization=UMLFactory.eINSTANCE.createGeneralization();
 			
+			//Transitions LOOOOP
+			for(org.eclipse.uml2.uml.Transition currentTransition : region.getTransitions()){
+				org.eclipse.uml2.uml.Operation newTransitionOP=UMLFactory.eINSTANCE.createOperation();
+				newTransitionOP.setName(currentTransition.getName());			
+				List<org.eclipse.uml2.uml.Constraint> constraints =currentTransition.getOwnedRules();
+				System.err.println("currentTranistio : "+currentTransition.getName());
+				System.err.println(constraints.size());
+				if(constraints.size()>0){
+					newTransitionOP.getOwnedRules().add(constraints.get(0));
+				}
+				
+				List<org.eclipse.uml2.uml.Transition> out_transits= currentVertex.getOutgoings();
+				for(org.eclipse.uml2.uml.Transition t:out_transits){
+					if(t.getSource().equals(currentTransition.getSource())){
+						stateClass.getOwnedOperations().add(newTransitionOP);	
+					}
+				}
+							
+			}
+
 			generalization.setGeneral(abstractClass);
-			stateClass.getGeneralizations().add(generalization);
+			stateClass.getGeneralizations().add(generalization);			
 			newPackage.getPackagedElements().add(stateClass);
 		}
 		
 
-		//Transitions LOOOOP
-		for(org.eclipse.uml2.uml.Transition currentTransition : region.getTransitions()){
-			org.eclipse.uml2.uml.Operation newTransition=UMLFactory.eINSTANCE.createOperation();
-			newTransition.setName(currentTransition.getName());			
-			List<org.eclipse.uml2.uml.Constraint> constraints =currentTransition.getOwnedRules();
-			for(org.eclipse.uml2.uml.Constraint currentConstraint:constraints){
-				System.out.println("current constraint :"+currentConstraint.getName());
-			}
-		}
 		//bind to abstract class
 		org.eclipse.uml2.uml.Property bindIt=UMLFactory.eINSTANCE.createProperty();
 		bindIt.setType(abstractClass);

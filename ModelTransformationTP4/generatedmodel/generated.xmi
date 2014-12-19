@@ -3,15 +3,23 @@
   <packagedElement xsi:type="uml:Package" name="PackOne">
     <packagedElement xsi:type="uml:Class" name="Mineur">
       <generalization general="//PackOne/ETAT"/>
+      <ownedOperation name="setMajeur">
+        <ownedRule name="setMajeurConstraint">
+          <constrainedElement xsi:type="uml:Operation" href="model/modelpapyrus.uml#_rYv2cHpUEeS3mKmuOCgw9A"/>
+        </ownedRule>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="Majeur">
       <generalization general="//PackOne/ETAT"/>
+      <ownedOperation name="setVieux"/>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="Vieux">
       <generalization general="//PackOne/ETAT"/>
+      <ownedOperation name="setMort"/>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="born">
       <generalization general="//PackOne/ETAT"/>
+      <ownedOperation name="naissance"/>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="dead">
       <generalization general="//PackOne/ETAT"/>
