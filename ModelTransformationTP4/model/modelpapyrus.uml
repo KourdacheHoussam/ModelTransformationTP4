@@ -1,38 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_msRVsHpTEeS3mKmuOCgw9A" name="StateMachine" URI="http:///StateMachine.ecore">
-  <packagedElement xmi:type="uml:Class" xmi:id="_BGRIQHpUEeS3mKmuOCgw9A" name="Personne">
-    <ownedAttribute xmi:id="__JB4IHpWEeS3mKmuOCgw9A" name="name">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+<uml:Model xmi:version="20131001"
+    xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+    xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML"
+    xmi:id="_msRVsHpTEeS3mKmuOCgw9A"
+    name="StateMachine"
+    URI="http:///StateMachine.ecore">
+  <packagedElement
+      xmi:type="uml:Class"
+      xmi:id="_BGRIQHpUEeS3mKmuOCgw9A"
+      name="Personne">
+    <ownedAttribute
+        xmi:id="__JB4IHpWEeS3mKmuOCgw9A"
+        name="name">
+      <type
+          xmi:type="uml:PrimitiveType"
+          href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_EKdxsHpXEeS3mKmuOCgw9A" name="age">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+    <ownedAttribute
+        xmi:id="_EKdxsHpXEeS3mKmuOCgw9A"
+        name="age">
+      <type
+          xmi:type="uml:PrimitiveType"
+          href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_JDhZUIOBEeS9UNJzWkrD3A" name="statut">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_METAMODELS/Ecore.metamodel.uml#EString"/>
+    <ownedAttribute
+        xmi:id="_JDhZUIOBEeS9UNJzWkrD3A"
+        name="statut">
+      <type
+          xmi:type="uml:PrimitiveType"
+          href="pathmap://UML_METAMODELS/Ecore.metamodel.uml#EString"/>
     </ownedAttribute>
-    <ownedOperation xmi:id="_rYv2cHpUEeS3mKmuOCgw9A" name="ChangeStatut" method="_vlpNkIN8EeS9UNJzWkrD3A">
-      <ownedParameter xmi:id="_zczTEIOBEeS9UNJzWkrD3A" name="age">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_METAMODELS/Ecore.metamodel.uml#EInt"/>
+    <ownedOperation
+        xmi:id="_rYv2cHpUEeS3mKmuOCgw9A"
+        name="ChangeStatut"
+        method="_vlpNkIN8EeS9UNJzWkrD3A">
+      <ownedParameter
+          xmi:id="_zczTEIOBEeS9UNJzWkrD3A"
+          name="age">
+        <type
+            xmi:type="uml:PrimitiveType"
+            href="pathmap://UML_METAMODELS/Ecore.metamodel.uml#EInt"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_vlpNkIN8EeS9UNJzWkrD3A" name="MyStateMachine" specification="_rYv2cHpUEeS3mKmuOCgw9A" submachineState="_NopcQIN_EeS9UNJzWkrD3A">
-    <region xmi:id="_2tJmUIN9EeS9UNJzWkrD3A" name="PersonneX">
-      <transition xmi:id="_WNQFIIOAEeS9UNJzWkrD3A" name="naissance" redefinedTransition="_WNQFIIOAEeS9UNJzWkrD3A" source="_aa5mwIN_EeS9UNJzWkrD3A" target="_NopcQIN_EeS9UNJzWkrD3A"/>
-      <transition xmi:id="_fovIIIOAEeS9UNJzWkrD3A" name="setMajeur" guard="_i2v8QIOAEeS9UNJzWkrD3A" source="_NopcQIN_EeS9UNJzWkrD3A" target="_VMBuIIN_EeS9UNJzWkrD3A">
-        <ownedRule xmi:id="_i2v8QIOAEeS9UNJzWkrD3A" constrainedElement="_rYv2cHpUEeS3mKmuOCgw9A"/>
+  <packagedElement
+      xmi:type="uml:StateMachine"
+      xmi:id="_vlpNkIN8EeS9UNJzWkrD3A"
+      name="MyStateMachine"
+      specification="_rYv2cHpUEeS3mKmuOCgw9A"
+      submachineState="_NopcQIN_EeS9UNJzWkrD3A">
+    <region
+        xmi:id="_2tJmUIN9EeS9UNJzWkrD3A"
+        name="PersonneX">
+      <transition
+          xmi:id="_WNQFIIOAEeS9UNJzWkrD3A"
+          name="naissance"
+          redefinedTransition="_WNQFIIOAEeS9UNJzWkrD3A"
+          source="_aa5mwIN_EeS9UNJzWkrD3A"
+          target="_NopcQIN_EeS9UNJzWkrD3A"/>
+      <transition
+          xmi:id="_fovIIIOAEeS9UNJzWkrD3A"
+          name="setMajeur"
+          guard="_i2v8QIOAEeS9UNJzWkrD3A"
+          source="_NopcQIN_EeS9UNJzWkrD3A"
+          target="_VMBuIIN_EeS9UNJzWkrD3A">
+        <ownedRule
+            xmi:id="_i2v8QIOAEeS9UNJzWkrD3A"
+            name="setMajeurConstraint"
+            constrainedElement="_rYv2cHpUEeS3mKmuOCgw9A"/>
       </transition>
-      <transition xmi:id="_jE3l4IOCEeS9UNJzWkrD3A" name="setVieux" guard="_nc8ZYIOCEeS9UNJzWkrD3A" source="_VMBuIIN_EeS9UNJzWkrD3A" target="_XEu8MIN_EeS9UNJzWkrD3A">
-        <ownedRule xmi:id="_nc8ZYIOCEeS9UNJzWkrD3A" name="" constrainedElement="_rYv2cHpUEeS3mKmuOCgw9A"/>
+      <transition
+          xmi:id="_jE3l4IOCEeS9UNJzWkrD3A"
+          name="setVieux"
+          guard="_nc8ZYIOCEeS9UNJzWkrD3A"
+          source="_VMBuIIN_EeS9UNJzWkrD3A"
+          target="_XEu8MIN_EeS9UNJzWkrD3A">
+        <ownedRule
+            xmi:id="_nc8ZYIOCEeS9UNJzWkrD3A"
+            name="setVieuxConstraint"
+            constrainedElement="_rYv2cHpUEeS3mKmuOCgw9A"/>
       </transition>
-      <transition xmi:id="_DSYPMIODEeS9UNJzWkrD3A" name="setMort" guard="_QCqOUIOEEeS9UNJzWkrD3A" source="_XEu8MIN_EeS9UNJzWkrD3A" target="_f1aHoIN_EeS9UNJzWkrD3A">
-        <ownedRule xmi:id="_QCqOUIOEEeS9UNJzWkrD3A" name="" constrainedElement="_rYv2cHpUEeS3mKmuOCgw9A"/>
+      <transition
+          xmi:id="_DSYPMIODEeS9UNJzWkrD3A"
+          name="setMort"
+          guard="_QCqOUIOEEeS9UNJzWkrD3A"
+          source="_XEu8MIN_EeS9UNJzWkrD3A"
+          target="_f1aHoIN_EeS9UNJzWkrD3A">
+        <ownedRule
+            xmi:id="_QCqOUIOEEeS9UNJzWkrD3A"
+            name="setMortConstraint"
+            constrainedElement="_rYv2cHpUEeS3mKmuOCgw9A"/>
       </transition>
-      <subvertex xmi:type="uml:State" xmi:id="_NopcQIN_EeS9UNJzWkrD3A" name="Mineur" submachine="_vlpNkIN8EeS9UNJzWkrD3A"/>
-      <subvertex xmi:type="uml:State" xmi:id="_VMBuIIN_EeS9UNJzWkrD3A" name="Majeur"/>
-      <subvertex xmi:type="uml:State" xmi:id="_XEu8MIN_EeS9UNJzWkrD3A" name="Vieux"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_aa5mwIN_EeS9UNJzWkrD3A" name="born"/>
-      <subvertex xmi:type="uml:FinalState" xmi:id="_f1aHoIN_EeS9UNJzWkrD3A" name="dead"/>
+      <subvertex
+          xmi:type="uml:State"
+          xmi:id="_NopcQIN_EeS9UNJzWkrD3A"
+          name="Mineur"
+          submachine="_vlpNkIN8EeS9UNJzWkrD3A"/>
+      <subvertex
+          xmi:type="uml:State"
+          xmi:id="_VMBuIIN_EeS9UNJzWkrD3A"
+          name="Majeur"/>
+      <subvertex
+          xmi:type="uml:State"
+          xmi:id="_XEu8MIN_EeS9UNJzWkrD3A"
+          name="Vieux"/>
+      <subvertex
+          xmi:type="uml:Pseudostate"
+          xmi:id="_aa5mwIN_EeS9UNJzWkrD3A"
+          name="born"/>
+      <subvertex
+          xmi:type="uml:FinalState"
+          xmi:id="_f1aHoIN_EeS9UNJzWkrD3A"
+          name="dead"/>
     </region>
   </packagedElement>
 </uml:Model>
