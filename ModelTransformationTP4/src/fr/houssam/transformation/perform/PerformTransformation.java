@@ -1,12 +1,10 @@
 package fr.houssam.transformation.perform;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -22,16 +20,7 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.types.*;
 import org.eclipse.uml2.uml.Class;
-
 import model.ModelPackage;
-
-
-
-
-
-
-
-
 import org.eclipse.emf.common.util.*;
 import org.eclipse.emf.ecore.*;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -42,7 +31,6 @@ import org.eclipse.emf.ecore.xmi.XMLResource.XMLMap;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLMapImpl;
 import org.eclipse.uml2.uml.Model;
-
 import fr.houssam.transformation.model.statemachine.Behavior;
 import fr.houssam.transformation.model.statemachine.CallEvent;
 import fr.houssam.transformation.model.statemachine.Operation;
@@ -50,14 +38,10 @@ import fr.houssam.transformation.model.statemachine.Region;
 import fr.houssam.transformation.model.statemachine.State;
 import fr.houssam.transformation.model.statemachine.StateMachine;
 import fr.houssam.transformation.model.statemachine.StatemachineFactory;
-import fr.houssam.transformation.model.statemachine.StatemachinePackage;
-import fr.houssam.transformation.model.statemachine.Transition;
-import fr.houssam.transformation.model.statemachine.Trigger;
 import fr.houssam.transformation.model.statemachine.Vertex;
 
 
 public class PerformTransformation {
-	
 	/**
 	 * Main Class
 	 * 
@@ -79,22 +63,19 @@ public class PerformTransformation {
 		if (resource == null) {
 			System.err.print("Erreur de chargement du modèle. \n");
 		}
-		
-		
+	
 		// Instruction recuperant le modele sous forme d'arbre à partir de la classe racine Model
 		Model initialModel=(Model)resource.getContents().get(0);			
 		// Creation d'un package
 		org.eclipse.uml2.uml.Package newPackage=UMLFactory.eINSTANCE.createPackage();
 		//Creation d'un model 2 
 		Model newModel=(Model) UMLFactory.eINSTANCE.createModel();
+		PackageableElement  modelPackage_SM=(PackageableElement) initialModel.getPackagedElement("MyStateMachine");
 				
 		//Ajout du package ds le model
-		newModel.setName(initialModel.getName());
-		newPackage.setName("PackOne");
+		newModel.setName(initialModel.getName());		
 		newModel.getPackagedElements().add(newPackage);
 		
-		//Get the name of class model
-		PackageableElement  modelPackage_SM=(PackageableElement) initialModel.getPackagedElement("MyStateMachine");
 		
 		org.eclipse.uml2.uml.Class c = (org.eclipse.uml2.uml.Class) initialModel.getPackagedElements().get(1);
 		
@@ -158,7 +139,7 @@ public class PerformTransformation {
 			newPackage.getPackagedElements().add(stateClass);
 		}
 		
-
+		newPackage.setName(region.getName());
 		//bind to abstract class
 		org.eclipse.uml2.uml.Property bindIt=UMLFactory.eINSTANCE.createProperty();
 		bindIt.setType(abstractClass);
@@ -178,13 +159,15 @@ public class PerformTransformation {
 		System.out.println(" State machine  name: "+stateMachine.getName()+"\n");
 		System.out.println(" Region  name: "+region.getName()+"\n");
 		System.err.println(" Nbr Operations: "  +ops.size());
-		
-		
-		
+				
 		/** SAVE the model **/
-		
 		SaveModel("generatedmodel/generated.xmi", newModel);		
 	}
+	
+	
+	/*** -----------------------------------------
+	 * 			METHODES DU TD IMPLEMENTEES
+	 *** -----------------------------------------/
 	/**
 	 * Ajout des etats
 	 * 

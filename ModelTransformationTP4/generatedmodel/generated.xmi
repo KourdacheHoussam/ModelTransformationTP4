@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" name="StateMachine">
-  <packagedElement xsi:type="uml:Package" name="PackOne">
+  <packagedElement xsi:type="uml:Package" name="PersonneX">
     <packagedElement xsi:type="uml:Class" name="Mineur">
-      <generalization general="//PackOne/ETAT"/>
+      <generalization general="//PersonneX/ETAT"/>
       <ownedOperation name="setMajeur">
         <ownedRule name="setMajeurConstraint">
           <constrainedElement xsi:type="uml:Operation" href="model/modelpapyrus.uml#_rYv2cHpUEeS3mKmuOCgw9A"/>
@@ -10,19 +10,19 @@
       </ownedOperation>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="Majeur">
-      <generalization general="//PackOne/ETAT"/>
+      <generalization general="//PersonneX/ETAT"/>
       <ownedOperation name="setVieux"/>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="Vieux">
-      <generalization general="//PackOne/ETAT"/>
+      <generalization general="//PersonneX/ETAT"/>
       <ownedOperation name="setMort"/>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="born">
-      <generalization general="//PackOne/ETAT"/>
+      <generalization general="//PersonneX/ETAT"/>
       <ownedOperation name="naissance"/>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="dead">
-      <generalization general="//PackOne/ETAT"/>
+      <generalization general="//PersonneX/ETAT"/>
     </packagedElement>
     <packagedElement xsi:type="uml:Class" name="MyStateMachine"/>
     <packagedElement xsi:type="uml:Class" name="ETAT" isAbstract="true"/>

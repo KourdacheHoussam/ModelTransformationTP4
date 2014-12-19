@@ -31,15 +31,23 @@
   <foreignModel>generated.xmi</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="StateMachine" disposableProviderFactory="true"
       ecorePackage="StateMachine.ecore#/">
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="PackOne" disposableProviderFactory="true"
-        ecorePackage="StateMachine.ecore#//PackOne">
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PackOne/Mineur"/>
-      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="StateMachine.ecore#//PackOne/State"/>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PackOne/Majeur"/>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PackOne/Vieux"/>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PackOne/born"/>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PackOne/dead"/>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PackOne/MyStateMachine"/>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="PersonneX" disposableProviderFactory="true"
+        ecorePackage="StateMachine.ecore#//PersonneX">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PersonneX/Mineur">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="StateMachine.ecore#//PersonneX/Mineur/setMajeur"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="StateMachine.ecore#//PersonneX/ETAT"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PersonneX/Majeur">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="StateMachine.ecore#//PersonneX/Majeur/setVieux"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PersonneX/Vieux">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="StateMachine.ecore#//PersonneX/Vieux/setMort"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PersonneX/born">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="StateMachine.ecore#//PersonneX/born/naissance"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PersonneX/dead"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="StateMachine.ecore#//PersonneX/MyStateMachine"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

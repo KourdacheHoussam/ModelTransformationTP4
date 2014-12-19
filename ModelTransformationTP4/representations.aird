@@ -17,6 +17,7 @@
   <models xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
   <models xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <models xmi:type="uml:Model" href="generatedmodel/generated.xmi#/"/>
   <models xmi:type="ecore:EPackage" href="generatedmodel/StateMachine.ecore#/"/>
   <models xmi:type="genmodel_1:GenModel" href="generatedmodel/generated.genmodel#/"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_HBGT4IRYEeS9_OddpAPtpg" initialized="true">
